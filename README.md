@@ -16,7 +16,8 @@ Why using lovely_logger is better than using the built-in python logging module:
 4. It handles simultaneous logging to both stdout (the console) and automatically rotating log files by default
 5. It supports independent formatters for console vs files out-of-the-box
 6. It supports both timezones and milliseconds in the timestamp
-7. It support shorthand which makes it just as easy to log as it is to `print()`
+7. It has sane defaults, like logging a timestamp in the first place
+8. It support shorthand which makes it just as quick to log as it is to `print()`
 
 
 
@@ -30,7 +31,7 @@ log.init('my_log_file.log')
 log.debug('here are the in-scope variables right now: %s', dir())
 log.info('%s v1.2 HAS STARTED', __file__)
 log.warning('here is a warning message')
-log.error('generally you would use warning for handled exceptions')
+log.error('generally you would use error for handled exceptions which prevent further execution')
 log.critical('generally you would use critical for uncaught exceptions')
 ```
 
@@ -58,7 +59,7 @@ There is another special type of log function that can only be used inside of an
 try:
     a = 1/0
 except:
-    log.exception("You can't divide by zero, dummy")
+    log.exception("You can't divide by zero!")
 ```
 
 
