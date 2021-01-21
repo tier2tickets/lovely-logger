@@ -17,16 +17,31 @@ Why using lovely_logger is better than using the built-in python logging module:
 5. It supports independent formatters for console vs files out-of-the-box
 6. It supports both timezones and milliseconds in the timestamp
 7. It has sane defaults, like logging a timestamp in the first place
-8. It support shorthand which makes it just as quick to log as it is to `print()`
+8. It supports shorthand which makes it just as quick to log as it is to `print()`
 
 
 
-example usage:
+##### getting started:
 
 ```python
 import lovely_logger as log
 
-log.init('my_log_file.log')
+log.init('filename.log')
+log.info('Hello World!')
+```
+
+It's that easy!
+
+
+
+
+
+more examples:
+
+```python
+import lovely_logger as log
+
+log.init('./my_log_file.log')
 
 log.debug('here are the in-scope variables right now: %s', dir())
 log.info('%s v1.2 HAS STARTED', __file__)
@@ -64,7 +79,7 @@ except:
 
 
 
-because nobody has time to type out log complicated words like `exception` or `critical`, and code looks worse when the print statements are all different lengths, there is shorthand here for you.
+because nobody has time to type out complicated words like `exception` or `critical`, and code looks worse when the print statements are all different lengths, there is shorthand here for you.
 
 instead of this:
 
