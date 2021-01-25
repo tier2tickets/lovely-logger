@@ -32,7 +32,7 @@ CRITICAL = logging.CRITICAL
 DATE_FORMAT = '%Y-%m-%d %H:%M:%S.uuu%z'
 
 FILE_FORMAT = "[%(asctime)s] [%(levelname)-8s] - %(message)s (%(filename)s:%(lineno)s)"
-CONSOLE_FORMAT = "[%(levelname)-8s] - %(message)s (%(filename)s:%(lineno)s)"
+CONSOLE_FORMAT = "%(levelname)-8s: %(message)s (%(filename)s:%(lineno)s)"
 
 # in a module, __name__ is the module’s name in the Python package name space.
 logger = logging.getLogger(__name__)

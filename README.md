@@ -4,7 +4,7 @@
 
 
 
-lovely_logger is a highly robust production-ready feature-rich logger which is used throughout the [Tier2 Technologies](https://www.tier2.tech/) software stack
+lovely_logger is a highly robust, production-ready, feature-rich logger which is used throughout the [Tier2 Technologies](https://www.tier2.tech/) software stack
 
 
 
@@ -21,10 +21,10 @@ Why using lovely_logger is better than using the built-in python logging module:
 
 
 
-##### getting started:
+##### Getting Started:
 
 ```python
-import lovely_logger as log
+import lovely_logger as log # pip install lovely-logger
 
 log.init('filename.log')
 log.info('Hello World!')
@@ -36,7 +36,7 @@ It's that easy!
 
 
 
-more examples:
+##### Another Example:
 
 ```python
 import lovely_logger as log
@@ -117,7 +117,7 @@ except:
 
 
 
-By default, the logger is going to output the date/time, level, message, filename, and line number into the file and all that except the date/time to the console. If you want to override what gets outputted, or change the format, you can manually set the formatting:
+By default, the logger is going to output the date/time, level, message, filename, and line number into the log file. It will print all of that same info except the date/time to the console. If you want to override what gets outputted, or change the format, you can manually set the formatting:
 
 ```python
 import lovely_logger as log
