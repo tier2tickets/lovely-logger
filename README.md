@@ -12,12 +12,13 @@ Why using lovely_logger is better than using the built-in python logging module:
 
 1. It is much easier to use
 2. It handles automatic logging of uncaught exception tracebacks
-3. It is thread-safe and will flush the log to disk on program crash/exit
-4. It handles simultaneous logging to both stdout (the console) and automatically rotating log files by default
-5. It supports independent formatters for console vs files out-of-the-box
-6. It supports both timezones and milliseconds in the timestamp
-7. It has sane defaults, like logging a timestamp in the first place
-8. It supports shorthand which makes it just as quick to log as it is to `print()`
+3. It is thread-safe
+4. It will flush the log to disk on program crash/exit
+5. It handles simultaneous logging to both stdout (the console) and automatically rotating log files by default
+6. It supports independent formatters for console vs files out-of-the-box
+7. It supports both timezones and milliseconds in the timestamp
+8. It has sane defaults, like logging a timestamp in the first place
+9. It supports shorthand which makes it just as quick to log as it is to `print()`
 
 
 
