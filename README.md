@@ -89,9 +89,9 @@ import lovely_logger as log
 log.init('my_log_file.log')
 
 log.debug('This is a debug log entry')
-log.info('This is an info log entry')
+log.info('This is a info log entry')
 log.warning('This is a warning log entry')
-log.error('This is an error log entry')
+log.error('This is a error log entry')
 log.critical('This is a critical log entry')
 try:
     a = 1/0
@@ -108,7 +108,7 @@ log.init('my_log_file.log')
 log.d('This is a debug log entry')
 log.i('This is a info log entry')
 log.w('This is a warning log entry')
-log.e('This is an error log entry')
+log.e('This is a error log entry')
 log.c('This is a critical log entry')
 try:
     a = 1/0
