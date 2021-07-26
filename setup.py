@@ -10,7 +10,7 @@ README = (HERE / "README.md").read_text()
 # This call to setup() does all the work
 setup(
     name="lovely_logger",
-    version="1.0.3",
+    version="1.0.5",
     description="A logger library which builds on, combines, and simplifies various logging features of Python 3",
     long_description=README,
     long_description_content_type="text/markdown",
@@ -25,6 +25,7 @@ setup(
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
     ],
     packages=["lovely_logger"],
     include_package_data=False,

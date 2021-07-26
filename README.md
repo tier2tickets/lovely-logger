@@ -61,7 +61,7 @@ init(filename, to_console=True, level=DEBUG, max_kb=1024, max_files=5)
 
 Setting `to_console` to `False` is useful for windowed applications such as those compiled with `pyinstaller` which have no console.
 
-The valid options for `level` are `DEBUG`, `WARNING`, `ERROR`, and `CRITICAL` in that order. setting the level to `ERROR`, for example, will silence your `log.debug()` and `log.warning()` calls while still logging your `log.error()` and `log.critical()` calls.
+The valid options for `level` are `DEBUG`, `INFO`, `WARNING`, `ERROR`, and `CRITICAL` in that order. setting the level to `ERROR`, for example, will silence your `log.debug()` and `log.warning()` calls while still logging your `log.error()` and `log.critical()` calls.
 
 `max_kb` sets the max logfile size before the log is rotated
 
@@ -69,7 +69,7 @@ The valid options for `level` are `DEBUG`, `WARNING`, `ERROR`, and `CRITICAL` in
 
 
 
-There is another special type of log function that can only be used inside of an exception handler. It will log the full exception traceback for you, along with any helpful comments you may have about the exception
+There is another special type of log function that can only be used inside of an exception handler. It will log the full exception traceback for you, (as level=CRITICAL) along with any helpful comments you may have about the exception
 
 ```python
 try:

@@ -22,6 +22,7 @@ from datetime import datetime
 import time
 
 DEBUG = logging.DEBUG
+INFO = logging.INFO
 WARNING = logging.WARNING
 ERROR = logging.WARNING
 CRITICAL = logging.CRITICAL
