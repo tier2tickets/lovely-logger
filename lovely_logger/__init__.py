@@ -97,7 +97,7 @@ def init(filename, to_console=True, level=DEBUG, max_kb=1024, max_files=5):
             sys.__excepthook__(exc_type, exc_value, exc_traceback)
             return
         if thread:
-            logger.critical(f"Uncaught Exception in thread {thread.name}:", exc_info=(exc_type, exc_value, exc_traceback))
+            logger.critical("Uncaught Exception in thread " + thread.name + ":", exc_info=(exc_type, exc_value, exc_traceback))
         else:
             logger.critical("Uncaught Exception:", exc_info=(exc_type, exc_value, exc_traceback))
 
