@@ -1,3 +1,5 @@
+[![PyPI version](https://badge.fury.io/py/lovely-logger.svg)](https://badge.fury.io/py/lovely-logger) [![Downloads](https://pepy.tech/badge/lovely-logger)](https://pepy.tech/project/lovely-logger)
+
 # lovely_logger
 
 #### A logger library which builds on, combines, and simplifies various logging features of Python 3.
