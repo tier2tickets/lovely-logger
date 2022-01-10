@@ -20,10 +20,8 @@ import atexit
 from queue import Queue
 from datetime import datetime
 import time
-import threading
 
 DEBUG = logging.DEBUG
-INFO = logging.INFO
 WARNING = logging.WARNING
 ERROR = logging.WARNING
 CRITICAL = logging.CRITICAL
@@ -46,12 +44,10 @@ error = e = logger.error
 critical = c = logger.critical
 exception = x = logger.exception
 
-def init(filename, to_console=True, level=DEBUG, max_kb=1024, max_files=5):
+def init(filename, to_console=True, level=DEBUG, max_kb=1024, max_files=5, excepthook=True):
     ''' call this function after overriding the format constants to initialize the logger '''
     logger.setLevel(level)
 
-    # overriding the default logging.Formatter because it uses time.strftime,
-    # which has no support for milliseconds, and datetime.strftime does
     class CustomFormatter(logging.Formatter):
         ''' overriding the default logging.Formatter because it uses time.strftime
             which has no support for microseconds, and datetime.strftime does
@@ -92,22 +88,16 @@ def init(filename, to_console=True, level=DEBUG, max_kb=1024, max_files=5):
     logger.addHandler(QueueHandler(log_queue))
 
     # build a handler that can log uncaught exceptions
-    def handle_exception(exc_type, exc_value, exc_traceback, thread=None):
-        if issubclass(exc_type, KeyboardInterrupt):
+    def handle_exception(exc_type, exc_value, exc_traceback):
+        if not issubclass(exc_type, Exception): # things like KeyboardInterrupt
             sys.__excepthook__(exc_type, exc_value, exc_traceback)
             return
-        if thread:
-            logger.critical("Uncaught Exception in thread " + thread.name + ":", exc_info=(exc_type, exc_value, exc_traceback))
-        else:
-            logger.critical("Uncaught Exception:", exc_info=(exc_type, exc_value, exc_traceback))
+        logger.critical("Uncaught Exception:", exc_info=(exc_type, exc_value, exc_traceback))
 
-    # unpack thread exceptions
-    def handle_exception_thread(args):
-        handle_exception(*args)
 
     # and then we attach that handler to the except hook
-    sys.excepthook = handle_exception
-    threading.excepthook = handle_exception_thread
+    if excepthook:
+        sys.excepthook = handle_exception
 
     # attach an exit handler so that the program waits for the queue to empty before exiting.
     atexit.register(queue_listener.stop)
